@@ -7,9 +7,16 @@ export DEBUILD_DPKG_BUILDPACKAGE_OPTS="-d"
 
 apt install -y qtbase5-private-dev libqt5svg5-dev qttools5-dev libqt5x11extras5-dev libpolkit-qt5-1-dev
 apt install -y libkf5guiaddons-dev libkf5idletime-dev libkf5screen-dev libkf5windowsystem-dev libkf5solid-dev
-apt install -y bash libstatgrab-dev libudev-dev libasound2-dev libmagic-dev libpulse-dev libsensors4-dev libconfig-dev libmuparser-dev libupower-glib-dev libpolkit-agent-1-dev libpolkit-qt5-1-dev sudo libexif-dev x11-utils libxss-dev libxcursor-dev libxcomposite-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-image0-dev libxcb-screensaver0-dev libxcb-util0-dev libxkbcommon-x11-dev libdbusmenu-qt5-dev libfm-dev libmenu-cache-dev lxmenu-data gtk-update-icon-cache hicolor-icon-theme xdg-utils xdg-user-dirs oxygen-icon-theme openbox-dev libxi-dev xserver-xorg-input-libinput-dev libxcb-randr0-dev libxdamage-dev libjson-glib-dev libx11-xcb-dev libjson-glib-dev libprocps-dev libxtst-dev
+apt install -y bash libstatgrab-dev libudev-dev libasound2-dev libpulse-dev libsensors4-dev libconfig-dev \
+  libmuparser-dev libupower-glib-dev libpolkit-agent-1-dev libpolkit-qt5-1-dev sudo libexif-dev x11-utils \
+  libxss-dev libxcursor-dev libxcomposite-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-dpms0-dev \
+  libxcb-image0-dev libxcb-screensaver0-dev libxcb-util0-dev libxkbcommon-x11-dev libdbusmenu-qt5-dev \
+  libfm-dev libmenu-cache-dev lxmenu-data gtk-update-icon-cache hicolor-icon-theme xdg-utils xdg-user-dirs \
+  oxygen-icon-theme openbox-dev libxi-dev xserver-xorg-input-libinput-dev libxcb-randr0-dev libxdamage-dev \
+  libjson-glib-dev libx11-xcb-dev libjson-glib-dev libprocps-dev libxtst-dev dh-exec libutf8proc-dev \
+  libmagic-dev libsystemd-dev
 
-apt source -y lxqt-build-tools libqtxdg liblxqt libsysstat \
+apt source -y lxqt-build-tools libqtxdg liblxqt libsysstat qtxdg-tools \
   libfm-qt lxqt-themes pavucontrol-qt lxqt-about lxqt-admin lxqt-config lxqt-globalkeys lxqt-notificationd \
   lxqt-openssh-askpass lxqt-policykit lxqt-powermanagement lxqt-session lxqt-sudo pcmanfm-qt lxqt-panel \
   lxqt-runner lxqt-archiver lximage-qt qtermwidget qterminal qps screengrab
@@ -77,6 +84,7 @@ dpkg -i libfm-qt11*.deb
 dpkg -i libfm-qt-dev*.deb
 
 
+
 CMAKE_REPOS=" \
     lxqt-themes-1.1.0 \
     pavucontrol-qt-1.1.0 \
@@ -94,11 +102,13 @@ do
 done
 
 
+dpkg -r --force-depends libqtermwidget5-0
 dpkg -i lxqt-themes*.deb
 dpkg -i lxqt-system-theme*.deb
 dpkg -i pavucontrol*.deb
 dpkg -i libqtermwidget*.deb
 dpkg -i qtermwidget*.deb
+
 
 
 git clone --branch debian/experimental https://salsa.debian.org/lxqt-team/lxqt-qtplugin.git lxqt-qtplugin-1.1.0
