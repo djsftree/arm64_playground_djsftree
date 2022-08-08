@@ -20,7 +20,7 @@ apt install -y bash libstatgrab-dev libudev-dev libasound2-dev libpulse-dev libs
   libjson-glib-dev libx11-xcb-dev libjson-glib-dev libprocps-dev libxtst-dev dh-exec libutf8proc-dev \
   libmagic-dev libsystemd-dev
 
-apt source -y lxqt-build-tools libqtxdg liblxqt libsysstat qtxdg-tools \
+apt source -y lxqt-build-tools libqtxdg liblxqt libsysstat qtxdg-tools obconf-qt \
   libfm-qt lxqt-themes pavucontrol-qt lxqt-about lxqt-admin lxqt-config lxqt-globalkeys lxqt-notificationd \
   lxqt-openssh-askpass lxqt-policykit lxqt-powermanagement lxqt-session lxqt-sudo pcmanfm-qt lxqt-panel \
   lxqt-runner lxqt-archiver lximage-qt qtermwidget qterminal qps screengrab
@@ -175,7 +175,8 @@ CMAKE_REPOS=" \
     lximage-qt-1.1.0 \
     qterminal-1.1.0 \
     qps-2.5.0 \
-    screengrab-2.4.0"
+    screengrab-2.4.0 \
+    obconf-qt-0.16.2"
 
 
 
@@ -203,3 +204,4 @@ dpkg -i lximage-qt*.deb
 dpkg -i qterminal*.deb
 dpkg -i qps*.deb
 dpkg -i screengrab*.deb
+dpkg -i obconf-qt*.deb
